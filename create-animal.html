@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Animal</title>
+  <link rel="stylesheet" href="css/create-animal.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <form id="animal-form">
+    <h1>Create Animal</h1>
+
+    <input type="text" id="name" placeholder="Animal Name" required />
+
+    <!-- Scientific Name Input Field -->
+    <label class="section-label">Scientific Name</label>
+    <input type="text" id="scientific-name" placeholder="Scientific Name" required />
+
+    <label class="section-label">Description (one paragraph per line)</label>
+    <textarea id="description" placeholder="Enter multiple paragraphs, one per line"></textarea>
+
+    <label class="section-label">Habitat</label>
+    <input type="text" id="habitat" placeholder="Habitat" />
+
+    <label class="section-label">Diet</label>
+    <input type="text" id="diet" placeholder="Diet" />
+
+    <label class="section-label">Lifespan</label>
+    <input type="text" id="lifespan" placeholder="Lifespan" />
+
+    <label class="section-label">Image URLs (one per line)</label>
+    <textarea id="images" placeholder="Enter image URLs"></textarea>
+
+    <label class="section-label">Video URLs (YouTube embed links, one per line)</label>
+    <textarea id="videos" placeholder="Enter video URLs"></textarea>
+
+    <label class="section-label">Events</label>
+    <div id="events-section">
+      <div class="event-group">
+        <input type="text" class="event-name" placeholder="Event Name" />
+        <input type="date" class="event-date" />
+      </div>
+    </div>
+    <button type="button" onclick="addEventField()">Add Another Event</button>
+
+    <div class="button-container">
+      <button type="submit">Submit</button>
+      <button type="button" onclick="loadSample()">Load Sample Data</button>
+    </div>
+    <p id="error" style="color: red;"></p>
+  </form>
+
+  <div id="preview-images"></div>
+
+  <script src="js/create-animal.js"></script>
+</body>
+</html>

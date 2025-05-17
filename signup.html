@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Geographic Animal - Sign Up</title>
+  <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+  
+  <div id="navbar">
+    <h2>National Geographic Animal</h2>
+  </div>
+
+  
+  <div class="form-container">
+    <form id="signup-form">
+      <h3>Sign Up to Explore the World of Animals</h3>
+      <input type="text" placeholder="Username" id="username" required />
+      <input type="password" placeholder="Password" id="password" required />
+      <label>
+        <input type="checkbox" id="isAdmin" /> Admin User
+      </label>
+      <button type="submit">Sign Up</button>
+      <div id="error" style="color: red;"></div>
+      <div class="form-links">
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+      </div>
+    </form>
+  </div>
+
+  
+  <script src="shared/utils.js"></script>
+  <script>
+    document.getElementById('signup-form').onsubmit = async (e) => {
+      e.preventDefault();
+      document.getElementById('error').textContent = '';
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const isAdmin = document.getElementById('isAdmin').checked;
+  
+      console.log('Form Data:', { username, password, isAdmin });
+  
+      try {
+        const res = await fetch('http://localhost:3000/api/auth/register', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ username, password, isAdmin })
+        });
+  
+        // Log the response to check the backend result
+        console.log('Response Status:', res.status);
+        const data = await res.json();
+        console.log('Response Data:', data);
+  
+        if (res.ok) {
+          localStorage.setItem('token', data.token);
+          location.href = isAdmin ? 'admin.html' : 'index.html';
+        } else {
+          document.getElementById('error').textContent = data.message || "Signup failed.";
+        }
+      } catch (err) {
+        console.error('Signup Error:', err);
+        document.getElementById('error').textContent = "Signup failed.";
+      }
+    };
+  </script>
+  
+</body>
+</html>

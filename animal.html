@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animal Details</title>
+  <link rel="stylesheet" href="css/animal.css" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header id="navbar">
+    <div class="header-top">
+      <img src="images/0491418c1fa5abbd445706cad813493d.png" alt="National Geographic Logo" class="header-logo">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <a href="#images">Images</a>
+      <a href="#videos">Videos</a>
+      <a href="#events">Events</a>
+    </nav>
+  </header>
+
+  <!-- Main Animal Info Section -->
+  <main class="flex flex-justify-center">
+    <div class="main-container">
+      <div id="error-message" style="color: red;"></div>
+
+      <h1 id="title" class="title-heading">Loading...</h1>
+      <p id="scientific-name" class="scientific-name"></p>
+      <img id="title-image" class="title-image" src="" alt="Animal Image" />
+
+      <h2 id="about">About</h2>
+      <div id="about-paragraphs" class="about-paragraphs"></div>
+      <p class="about-paragraph">
+        Learn more on <a class="link" id="wiki-link" href="#" target="_blank">Wikipedia</a>.
+      </p>
+
+      <h2 id="images">Images</h2>
+      <img id="slideshow-image" src="" alt="Slideshow Image" />
+      <div class="slideshow-button-container">
+        <button id="prev-button">&lt;</button>
+        <p id="counter-text">0/0</p>
+        <button id="next-button">&gt;</button>
+      </div>
+
+      <h2 id="videos">Videos</h2>
+      <div class="video-container" id="video-container"></div>
+
+      <h2 id="events">Events</h2>
+      <p class="today-date">Today's Date: <span id="current-date"></span></p>
+
+      <!-- Event Buttons -->
+      <div class="event-section">
+        <h3>Past Events</h3>
+        <div id="past-events" class="event-button-group"></div>
+
+        
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <p><a href="#">Terms of Use</a></p>
+        <p><a href="#">Privacy Policy</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Join Us</h4>
+        <p><a href="#">Subscribe</a></p>
+        <p><a href="#">Customer Service</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <p><a href="#">Instagram</a></p>
+        <p><a href="#">Facebook</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="shared/utils.js"></script>
+  <script src="js/animal.js"></script>
+</body>
+</html>
